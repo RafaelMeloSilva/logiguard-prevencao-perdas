@@ -99,4 +99,4 @@ python scripts/analise_e_modelo.py
 ## 👨‍💻 Autor & Conexões
 - **Desenvolvido por**: [Rafael de Melo da Silva]
 - **LinkedIn**: [www.linkedin.com/in/rafael-melo-4533a9171]
-- **Portfólio / GitHub**: [Seu GitHub]
+- **Portfólio / GitHub**: [https://github.com/RafaelMeloSilva]
