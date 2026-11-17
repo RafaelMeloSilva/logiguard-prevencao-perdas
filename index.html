@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogiGuard Analytics | Prevenção de Perdas na Logística</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- TOPBAR -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-lg shadow-lg shadow-blue-500/30">
+          🛡️
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-extrabold text-xl tracking-tight">LogiGuard</span>
+            <span class="text-xs uppercase px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 font-semibold border border-blue-400/30">AI & BI Core</span>
+          </div>
+          <p class="text-xs text-slate-400">Torre de Controle de Prevenção de Perdas & Detecção de Anomalias</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-2 h-2 mr-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Telemetria Conectada (650 Viagens)
+        </span>
+        <button onclick="window.print()" class="hidden sm:inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          📄 Exportar Relatório (PDF)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- BANNER HERO -->
+    <div class="rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white p-6 sm:p-8 shadow-xl relative overflow-hidden">
+      <div class="relative z-10 max-w-3xl space-y-3">
+        <span class="inline-block text-xs font-bold tracking-wider uppercase text-blue-300 bg-blue-950/60 px-3 py-1 rounded-md border border-blue-700/50">
+          💼 Estudo de Caso & Projeto de Portfólio
+        </span>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+          Prevenção de Perdas na Cadeia de Suprimentos com Inteligência Preditiva
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          Monitoramento em tempo real de cargas de alto valor e sensíveis a temperatura. Utilizando algoritmos de <strong>Detecção de Anomalias (Isolation Forest)</strong> e <strong>Score de Risco de Sinistro</strong> para antecipar desvios de rota, quebras na cadeia fria e furtos.
+        </p>
+      </div>
+      <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl select-none font-black text-white pointer-events-none">
+        LOGISTICS
+      </div>
+    </div>
+
+    <!-- CARDS DE KPIS -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- KPI 1 -->
+      <div class="glass-card rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center justify-between text-slate-500 mb-2">
+          <span class="text-xs font-semibold uppercase tracking-wider">Carga Monitorada</span>
+          <span class="p-2 rounded-lg bg-blue-50 text-blue-600 text-sm">📦</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">R$ 57,84 M</div>
+        <p class="text-xs text-slate-500 mt-2 flex items-center">
+          <span class="text-emerald-600 font-semibold mr-1">650 remessas</span> no período analisado
+        </p>
+      </div>
+
+      <!-- KPI 2 -->
+      <div class="glass-card rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center justify-between text-slate-500 mb-2">
+          <span class="text-xs font-semibold uppercase tracking-wider">Sinistralidade Bruta</span>
+          <span class="p-2 rounded-lg bg-rose-50 text-rose-600 text-sm">⚠️</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-rose-600">R$ 3,12 M</div>
+        <p class="text-xs text-slate-500 mt-2 flex items-center">
+          <span class="text-rose-600 font-semibold mr-1">5,39%</span> do volume transportado
+        </p>
+      </div>
+
+      <!-- KPI 3 -->
+      <div class="glass-card rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center justify-between text-slate-500 mb-2">
+          <span class="text-xs font-semibold uppercase tracking-wider">Perdas Evitadas (IA)</span>
+          <span class="p-2 rounded-lg bg-emerald-50 text-emerald-600 text-sm">💡</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600">R$ 1,84 M</div>
+        <p class="text-xs text-slate-500 mt-2 flex items-center">
+          <span class="text-emerald-600 font-semibold mr-1">+58,9%</span> de mitigação por alertas IoT
+        </p>
+      </div>
+
+      <!-- KPI 4 -->
+      <div class="glass-card rounded-2xl p-5 shadow-sm hover:shadow-md transition">
+        <div class="flex items-center justify-between text-slate-500 mb-2">
+          <span class="text-xs font-semibold uppercase tracking-wider">Performance do Modelo</span>
+          <span class="p-2 rounded-lg bg-indigo-50 text-indigo-600 text-sm">🎯</span>
+        </div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-600">0.942 AUC</div>
+        <p class="text-xs text-slate-500 mt-2 flex items-center">
+          F1-Score: <span class="text-indigo-600 font-semibold ml-1">0.89</span> | Recall Crítico: 92%
+        </p>
+      </div>
+    </section>
+
+    <!-- GRÁFICOS: LINHA 1 -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- GRAFICO 1: PERDAS POR CATEGORIA -->
+      <div class="glass-card rounded-2xl p-6 shadow-sm lg:col-span-2">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Impacto Financeiro por Categoria de Produto</h2>
+            <p class="text-xs text-slate-500">Comparativo entre Perdas Brutas e Prevenções Evitadas pela Torre de Controle (em R$ Milhares)</p>
+          </div>
+          <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded font-medium">BRL (R$)</span>
+        </div>
+        <div class="h-72">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+
+      <!-- GRAFICO 2: CAUSAS RAIZES DOS SINISTROS -->
+      <div class="glass-card rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Distribuição dos Sinistros</h2>
+            <p class="text-xs text-slate-500">Classificação dos tipos de ocorrências registradas</p>
+          </div>
+        </div>
+        <div class="h-72 flex items-center justify-center">
+          <canvas id="rootCauseChart"></canvas>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- GRÁFICOS: LINHA 2 (TEMPORAL & DISPERSÃO DE RISCO) -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      
+      <!-- GRAFICO 3: EVOLUÇÃO MENSAL -->
+      <div class="glass-card rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Curva de Redução de Perdas ao Longo do Ano</h2>
+            <p class="text-xs text-slate-500">Evolução do valor de sinistros após a implantação da Torre de IA</p>
+          </div>
+          <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-1 rounded font-semibold">-34% na Curva</span>
+        </div>
+        <div class="h-64">
+          <canvas id="timelineChart"></canvas>
+        </div>
+      </div>
+
+      <!-- SIMULADOR INTERATIVO DE ROI -->
+      <div class="glass-card rounded-2xl p-6 shadow-sm bg-gradient-to-br from-white to-blue-50/50">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">🧮 Simulador de ROI & Economia Preventiva</h2>
+            <p class="text-xs text-slate-500">Ajuste os parâmetros para calcular a economia líquida estimada da solução</p>
+          </div>
+        </div>
+        
+        <div class="space-y-4 text-xs mt-4">
+          <div>
+            <div class="flex justify-between font-semibold text-slate-700 mb-1">
+              <span>Adesão aos Alertas em Tempo Real (Torre de Controle):</span>
+              <span id="adhesionVal" class="text-blue-600 font-bold">75%</span>
+            </div>
+            <input id="sliderAdhesion" type="range" min="30" max="100" value="75" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer accent-blue-600" oninput="recalcularROI()">
+          </div>
+
+          <div>
+            <div class="flex justify-between font-semibold text-slate-700 mb-1">
+              <span>Custo Anual da Solução (Infraestrutura IoT + Cloud):</span>
+              <span id="costVal" class="text-blue-600 font-bold">R$ 240.000</span>
+            </div>
+            <input id="sliderCost" type="range" min="100000" max="500000" step="20000" value="240000" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer accent-blue-600" oninput="recalcularROI()">
+          </div>
+
+          <div class="p-4 bg-slate-900 text-white rounded-xl flex items-center justify-between shadow-inner mt-4">
+            <div>
+              <p class="text-slate-400 text-xs">Economia Líquida Anual Estimada</p>
+              <p id="savingsResult" class="text-2xl font-black text-emerald-400">R$ 1.625.400</p>
+            </div>
+            <div class="text-right">
+              <p class="text-slate-400 text-xs">Retorno sobre Investimento (ROI)</p>
+              <p id="roiResult" class="text-2xl font-black text-blue-400">577%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TABELA DE ANOMALIAS DETECTADAS -->
+    <section class="glass-card rounded-2xl p-6 shadow-sm">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">Ocorrências Recentes & Anomalias em Monitoramento</h2>
+          <p class="text-xs text-slate-500">Amostragem de telemetria com escores preditivos gerados pelo modelo</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <input type="text" id="tableSearch" placeholder="Filtrar por carga ou transportadora..." class="text-xs px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64" oninput="filtrarTabela()">
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200 text-slate-500 bg-slate-50 uppercase tracking-wider font-semibold">
+              <th class="py-3 px-3">Remessa</th>
+              <th class="py-3 px-3">Origem / Destino</th>
+              <th class="py-3 px-3">Transportadora</th>
+              <th class="py-3 px-3">Categoria</th>
+              <th class="py-3 px-3">Valor Carga</th>
+              <th class="py-3 px-3">Desvio / Temp</th>
+              <th class="py-3 px-3 text-center">Score Risco IA</th>
+              <th class="py-3 px-3">Status da Ação</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" class="divide-y divide-slate-100">
+            <!-- Linhas inseridas via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FOOTER COM NOTA METODOLÓGICA -->
+    <footer class="text-center text-xs text-slate-400 py-6 border-t border-slate-200 space-y-2">
+      <p class="font-medium text-slate-600">Projeto Portfólio de Ciência de Dados & Prevenção de Perdas em Logística</p>
+      <p>Desenvolvido com Python, Scikit-Learn, Feature Engineering e Métricas Financeiras de Negócio.</p>
+    </footer>
+
+  </main>
+
+  <!-- JAVASCRIPT: DADOS E COMPONENTES GRÁFICOS -->
+  <script>
+    // 1. Dados para os gráficos
+    const categoryData = {
+      labels: ['Eletrônicos & Smart', 'Farmacêuticos & Vacinas', 'Cosméticos & Perfumaria', 'Eletrodomésticos', 'Bebidas Premium', 'Alimentos Congelados'],
+      losses: [1280, 890, 420, 260, 180, 95], // em milhares R$
+      prevented: [740, 520, 280, 140, 110, 50]
+    };
+
+    // Gráfico de Barras: Categoria
+    new Chart(document.getElementById('categoryChart'), {
+      type: 'bar',
+      data: {
+        labels: categoryData.labels,
+        datasets: [
+          {
+            label: 'Perdas Confirmadas (R$ mil)',
+            data: categoryData.losses,
+            backgroundColor: '#ef4444',
+            borderRadius: 6
+          },
+          {
+            label: 'Perdas Evitadas por IA (R$ mil)',
+            data: categoryData.prevented,
+            backgroundColor: '#10b981',
+            borderRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 12, font: { size: 11 } } }
+        },
+        scales: {
+          x: { grid: { display: false } },
+          y: { grid: { color: '#f1f5f9' }, title: { display: true, text: 'R$ em Milhares' } }
+        }
+      }
+    });
+
+    // Gráfico Donut: Causas Raízes
+    new Chart(document.getElementById('rootCauseChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Desvio Suspeito / Tentativa Furto', 'Quebra Cadeia Frio (Temp)', 'Avaria Mecânica / Tombamento', 'Divergência de Estoque'],
+        datasets: [{
+          data: [44, 28, 18, 10],
+          backgroundColor: ['#6366f1', '#3b82f6', '#f59e0b', '#ec4899']
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } }
+        },
+        cutout: '68%'
+      }
+    });
+
+    // Gráfico de Linha: Tendência Mensal
+    new Chart(document.getElementById('timelineChart'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov'],
+        datasets: [
+          {
+            label: 'Perdas Reais (R$ mil)',
+            data: [380, 365, 340, 310, 270, 240, 210, 195, 180, 175, 160],
+            borderColor: '#f43f5e',
+            backgroundColor: 'rgba(244, 63, 94, 0.08)',
+            fill: true,
+            tension: 0.35
+          },
+          {
+            label: 'Economia Acumulada IA (R$ mil)',
+            data: [40, 95, 160, 230, 315, 420, 530, 640, 750, 890, 1040],
+            borderColor: '#10b981',
+            borderDash: [5, 5],
+            tension: 0.35
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 12, font: { size: 11 } } }
+        },
+        scales: {
+          y: { grid: { color: '#f1f5f9' } }
+        }
+      }
+    });
+
+    // Amostra de Remessas para a Tabela
+    const shipments = [
+      { id: 'REM-2026-0042', rota: 'CD Cajamar → BH', transp: 'TransLog Express', cat: 'Eletrônicos & Smart', valor: 'R$ 285.000', detalhe: 'Desvio: 48 km | 0.2°C', score: 0.94, status: 'Prevenido via Alerta IoT' },
+      { id: 'REM-2026-0078', rota: 'CD Extrema → RJ', transp: 'Rodocargo Brasil', cat: 'Farmacêuticos & Vacinas', valor: 'R$ 194.000', detalhe: 'Desvio: 4 km | +8.2°C', score: 0.91, status: 'Carga Salva (Refrigeração)' },
+      { id: 'REM-2026-0115', rota: 'CD Louveira → SP', transp: 'Frota Própria', cat: 'Cosméticos & Perfumaria', valor: 'R$ 142.000', detalhe: 'Desvio: 1.2 km | 0.0°C', score: 0.12, status: 'Regular (Sem Risco)' },
+      { id: 'REM-2026-0156', rota: 'CD Duque Caxias → Curitiba', transp: 'Rápido Sudeste', cat: 'Eletrônicos & Smart', valor: 'R$ 310.000', detalhe: 'Desvio: 65 km | 0.5°C', score: 0.96, status: 'Carga Recuperada por Bloqueio' },
+      { id: 'REM-2026-0204', rota: 'CD Cajamar → Salvador', transp: 'ViaCarga Log', cat: 'Eletrodomésticos', valor: 'R$ 88.000', detalhe: 'Desvio: 28 km | 0.0°C', score: 0.68, status: 'Avaria Parcial Registrada' },
+      { id: 'REM-2026-0249', rota: 'CD Extrema → Porto Alegre', transp: 'TransLog Express', cat: 'Alimentos Congelados', valor: 'R$ 72.000', detalhe: 'Desvio: 6 km | +11.4°C', score: 0.88, status: 'Perda Confirmada' },
+      { id: 'REM-2026-0291', rota: 'CD Curitiba → São Paulo', transp: 'Expresso Nacional', cat: 'Bebidas Premium', valor: 'R$ 64.000', detalhe: 'Desvio: 0.8 km | 0.1°C', score: 0.15, status: 'Regular (Sem Risco)' }
+    ];
+
+    function renderTabela(itens) {
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+      itens.forEach(item => {
+        let badgeClass = 'bg-slate-100 text-slate-700';
+        if (item.status.includes('Prevenido') || item.status.includes('Salva') || item.status.includes('Recuperada')) {
+          badgeClass = 'bg-emerald-50 text-emerald-700 border border-emerald-200';
+        } else if (item.status.includes('Perda') || item.status.includes('Avaria')) {
+          badgeClass = 'bg-rose-50 text-rose-700 border border-rose-200';
+        }
+
+        const scoreBarColor = item.score > 0.7 ? 'bg-rose-500' : (item.score > 0.4 ? 'bg-amber-500' : 'bg-emerald-500');
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 transition border-b border-slate-100';
+        tr.innerHTML = `
+          <td class="py-3 px-3 font-semibold text-slate-900">${item.id}</td>
+          <td class="py-3 px-3 text-slate-600">${item.rota}</td>
+          <td class="py-3 px-3 text-slate-600">${item.transp}</td>
+          <td class="py-3 px-3 text-slate-600">${item.cat}</td>
+          <td class="py-3 px-3 font-medium text-slate-900">${item.valor}</td>
+          <td class="py-3 px-3 text-slate-500 font-mono text-[11px]">${item.detalhe}</td>
+          <td class="py-3 px-3 text-center">
+            <div class="inline-flex items-center space-x-1.5">
+              <div class="w-12 bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                <div class="${scoreBarColor} h-1.5" style="width: ${item.score * 100}%"></div>
+              </div>
+              <span class="font-bold text-[11px]">${(item.score * 100).toFixed(0)}%</span>
+            </div>
+          </td>
+          <td class="py-3 px-3">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold ${badgeClass}">
+              ${item.status}
+            </span>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filtrarTabela() {
+      const q = document.getElementById('tableSearch').value.toLowerCase();
+      const filtrados = shipments.filter(s => 
+        s.id.toLowerCase().includes(q) || 
+        s.cat.toLowerCase().includes(q) || 
+        s.transp.toLowerCase().includes(q) ||
+        s.status.toLowerCase().includes(q)
+      );
+      renderTabela(filtrados);
+    }
+
+    function recalcularROI() {
+      const ad = parseInt(document.getElementById('sliderAdhesion').value);
+      const cost = parseInt(document.getElementById('sliderCost').value);
+      
+      document.getElementById('adhesionVal').innerText = ad + '%';
+      document.getElementById('costVal').innerText = 'R$ ' + cost.toLocaleString('pt-BR');
+      
+      const perdasTotais = 3120000;
+      const economiaPotencialMax = 2450000;
+      const economiaEfetiva = economiaPotencialMax * (ad / 100);
+      const economiaLiquida = economiaEfetiva - cost;
+      const roi = ((economiaLiquida / cost) * 100).toFixed(0);
+      
+      document.getElementById('savingsResult').innerText = 'R$ ' + Math.round(economiaLiquida).toLocaleString('pt-BR');
+      document.getElementById('roiResult').innerText = roi + '%';
+    }
+
+    // Inicialização
+    renderTabela(shipments);
+    recalcularROI();
+  </script>
+</body>
+</html>
